@@ -70,3 +70,16 @@ ggplot(data = diamonds) +
   )
 #makes seprate bars to better show numbers over proportions
 
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy), postion = "jitter")
+#makes it so each point is represented, but with loss of accuracy
+
+?position_dodge
+#command to get help page can switch with jitter or stack, etc
+
+ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
+  geom_boxplot() +
+  coord_flip()
+#makes a box plot of class compared to highway milage, coord_flip() flips the axis
+
+
