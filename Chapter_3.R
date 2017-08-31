@@ -61,3 +61,21 @@ by_day <- group_by(flights, year, month, day)
 #group by_day in flights by year, month, day
 summarise(by_day, delay = mean(dep_delay, na.rm = TRUE))
 #finds the mean delay for a day exculding NA's
+
+by_dest <- group_by(flights, dest)
+delay <- summarize(by_dest, count = n(), dist = mean(distance, na.rm = TRUE), delay = mean(arr_delay, na.rm = TRUE))
+delay <- filter(delay, count > 20, dest != "HNL")
+ggplot(data = delay, mapping = aes(x = dist, y = delay)) +
+  geom_point(aes(size = count), alpha = 1/3) +
+  geom_smooth(se = FALSE)
+#groups flights by destionation, summarizes to coute distance, average delay, and # of flights
+#filter to remove short flights and honolulu since it is an outliear
+
+delays <- flights %>%
+  group_by(dest) %>%
+  summarize(count = n(), dist = mean(distance, na.ra = TRUE), delay = mean(arr_delay, na.ra = TRUE)) %>%
+  filter(count > 20, dest != "HNL")
+#%>% means or can be thought of as then so create a varible based on our data THEN group the data by destionation
+#THEN create a summary with a count and dist as a mean of the distances and delay as the mean of delays from short to highest
+#THEN filter out our short flights and Honolulu since it is an outliear
+
