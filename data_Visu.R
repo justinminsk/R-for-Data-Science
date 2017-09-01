@@ -33,8 +33,8 @@ ggplot(data = diamonds) +
   geom_bar(mapping = aes(x = cut)) 
 #creates a basic bar graph
 
-ggplot(data = diamond) +
-  stat_count(maping = aes(x = cut))
+ggplot(data = diamonds) +
+  stat_count(mapping = aes(x = cut))
 #makes the same bar graph different code
 
 ggplot(data = diamonds) +
@@ -81,5 +81,4 @@ ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
   geom_boxplot() +
   coord_flip()
 #makes a box plot of class compared to highway milage, coord_flip() flips the axis
-
 
