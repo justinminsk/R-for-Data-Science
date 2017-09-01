@@ -109,8 +109,10 @@ ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
 
 
 ##Data Transformation
-Note that teh veiw() command will not open a window in the browser, but in Rstudio it will open a seprate window to veiw all of the data. 
+Note that the veiw() command will not open a window in the browser, but in Rstudio it will open a seprate window to veiw all of the data. 
+
 ###Chapter Three
+
 Use this package for the dataset that will be used
 ```{r message=FALSE, warning=FALSE}
 library(nycflights13)
